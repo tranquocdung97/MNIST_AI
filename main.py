@@ -8,8 +8,13 @@ import logging
 from datetime import datetime
 import config
 app = Flask(__name__)
+
 UPLOAD_FOLDER = config.UPLOAD_FOLDER
+if not os.path.isdir(UPLOAD_FOLDER):
+    os.makedirs(UPLOAD_FOLDER)
 LOGGING_NAME_FOLDER = config.LOGGING_NAME_FOLDER
+if not os.path.isdir(LOGGING_NAME_FOLDER):
+    os.makedirs(LOGGING_NAME_FOLDER)
 
 @app.route('/')
 def index():
